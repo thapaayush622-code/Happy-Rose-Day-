@@ -1,98 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day ❤️</title>
+  <meta charset="UTF-8">
+  <title>Happy Rose Day ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Georgia', serif;
-  background: linear-gradient(to bottom, #ffe6ea, #fff);
-  color: #4a1c2f;
-  text-align: center;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-header {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-}
-}
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      margin: 15px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
 
-h1 {
-  font-size: 2.8rem;
-}
+    h1 {
+      color: #e60073;
+      font-size: 2.2em;
+      margin-bottom: 10px;
+    }
 
-.section {
-  padding: 40px 20px;
-}
+    p {
+      color: #444;
+      font-size: 1.05em;
+      line-height: 1.6;
+    }
 
-.card {
-  background: #fff;
-  margin: 15px auto;
-  padding: 20px;
-  border-radius: 15px;
-  max-width: 500px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
+    .heart {
+      color: #ff3366;
+      font-size: 1.8em;
+      animation: beat 1.5s infinite;
+    }
 
-.heart {
-  font-size: 2rem;
-  animation: beat 1.5s infinite;
-}
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
 
-@keyframes beat {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.2); }
-}
+    /* Floating petals & hearts */
+    .float {
+      position: absolute;
+      bottom: -50px;
+      font-size: 24px;
+      animation: floatUp linear infinite;
+      opacity: 0.8;
+    }
 
-footer {
-  padding: 30px;
-  font-size: 1rem;
-}
-</style>
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Happy Rose Day, My Love 🌹</h1>
-  <p>You are my most beautiful blessing</p>
-</header>
-
-<div class="section">
   <div class="card">
-    <h2>From My Heart ❤️</h2>
+    <h1>🌹 Happy Rose Day 🌹</h1>
+
     <p>
-      I love you so much. More than words, more than silence, more than I can ever explain.
-      You make my life brighter just by being in it. Your smile is my peace, and your presence
-      feels like home.
+      Every day with you feels like a garden in full bloom.  
+      You bring colors to my world that I never knew existed,  
+      and warmth to my heart that words cannot describe.
     </p>
-  </div>
 
-  <div class="card">
-    <h2>Why You Are Special 🌸</h2>
-    <p>✨ Your kindness</p>
-    <p>✨ Your smile</p>
-    <p>✨ Your heart</p>
-    <p>✨ The way you understand me</p>
-  </div>
-
-  <div class="card">
-    <h2>What This Rose Means 🌹</h2>
     <p>
-      This rose is a symbol of my love, care, and promise to always stand by you.
-      Even if it’s digital, my feelings are real and forever.
+      Just like a rose unfolds its petals to reveal its beauty,  
+      you have opened my heart to a love so pure and deep.  
+      Your smile is my sunshine, your laugh is my favorite melody,  
+      and your love is my greatest treasure.
     </p>
+
+    <p>
+      On this Rose Day, I want you to know that my love for you grows  
+      stronger with each passing moment.  
+      You are not just my girlfriend —  
+      you are my wife, my confidant, and my forever.
+    </p>
+
+    <div class="heart">❤️❤️❤️</div>
   </div>
 
-  <div class="heart">❤️</div>
-</div>
+  <script>
+    const symbols = ["🌹", "🌸", "🌺", "❤️"];
 
-<footer>
-  Forever yours,<br>
-  <b>Kitty cat 😽</b>
-</footer>
+    function createFloating() {
+      const float = document.createElement("div");
+      float.className = "float";
+      float.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+      float.style.left = Math.random() * 100 + "vw";
+      float.style.animationDuration = (4 + Math.random() * 4) + "s";
+      float.style.fontSize = (20 + Math.random() * 20) + "px";
+
+      document.body.appendChild(float);
+
+      setTimeout(() => {
+        float.remove();
+      }, 8000);
+    }
+
+    setInterval(createFloating, 300);
+  </script>
 
 </body>
 </html>
