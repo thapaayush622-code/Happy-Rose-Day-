@@ -6,203 +6,174 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #ffe6f0;
-  overflow-x: hidden;
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:#ffe6f0;
+  overflow-x:hidden;
 }
 
-/* SECTION STYLE */
-section {
-  padding: 70px 20px;
-  display: flex;
-  justify-content: center;
+/* Sections */
+section{
+  padding:80px 20px;
+  display:flex;
+  justify-content:center;
 }
 
-.box {
-  background: #ffb6c1;
-  max-width: 800px;
-  padding: 30px;
-  border-radius: 22px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  text-align: center;
-  position: relative;
+/* Pink Box */
+.box{
+  background:#ffb6c1;
+  max-width:850px;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  text-align:center;
+  position:relative;
 }
 
-h1, h2 {
-  color: #b30059;
+h1,h2{
+  color:#b30059;
 }
 
-p {
-  color: #4a0033;
-  font-size: 1.1em;
-  line-height: 1.7;
+p{
+  color:#4a0033;
+  font-size:1.15em;
+  line-height:1.8;
 }
 
-/* FLOATING FLOWERS & HEARTS */
-.float {
-  position: fixed;
-  bottom: -40px;
-  animation: floatUp linear infinite;
-  opacity: 0.8;
-  z-index: 0;
+/* Floating petals & hearts */
+.float{
+  position:fixed;
+  bottom:-30px;
+  animation:floatUp linear infinite;
+  opacity:0.9;
+  z-index:0;
 }
 
-@keyframes floatUp {
-  from { transform: translateY(0); }
-  to { transform: translateY(-110vh); }
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
 }
 
-/* POKEBALL */
-.pokeball {
-  width: 140px;
-  height: 140px;
-  background: white;
-  border-radius: 50%;
-  position: relative;
-  margin: 20px auto;
-  border: 6px solid black;
-  overflow: hidden;
-  cursor: pointer;
+/* Buttons / Game */
+.buttons{
+  margin-top:25px;
 }
 
-.pokeball::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 50%;
-  background: red;
+button{
+  padding:12px 28px;
+  margin:10px;
+  font-size:1em;
+  border:none;
+  border-radius:30px;
+  cursor:pointer;
 }
 
-.pokeball::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  height: 6px;
-  background: black;
+.yes{
+  background:#ff3366;
+  color:white;
 }
 
-.center-btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 35px;
-  height: 35px;
-  background: white;
-  border: 5px solid black;
-  border-radius: 50%;
-  z-index: 2;
-}
-
-/* INSIDE POKEBALL */
-.secret {
-  display: none;
-  margin-top: 20px;
-  animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1); }
-}
-
-/* PIKACHU RUN */
-.run-box {
-  background: #fff0f6;
-  border-radius: 15px;
-  padding: 20px;
-  overflow: hidden;
-}
-
-.pikachu {
-  font-size: 40px;
-  animation: run 4s linear infinite;
-}
-
-@keyframes run {
-  from { transform: translateX(-50px); }
-  to { transform: translateX(100vw); }
+.no{
+  background:white;
+  color:#ff3366;
+  border:2px solid #ff3366;
 }
 </style>
 </head>
 
 <body>
 
-<!-- SECTION 1 -->
+<!-- TOP LOVE MESSAGE -->
 <section>
   <div class="box">
-    <h1>🌹 Happy Rose Day 🌹</h1>
+    <h1>🌹 Happy Rose Day My Love 🌹</h1>
     <p>
       Every day with you feels like a garden in full bloom.  
-      You bring colors to my world that I never knew existed.
+      You bring colors to my world that I never knew existed,  
+      and warmth to my heart that words can never describe.
     </p>
-  </div>
-</section>
-
-<!-- POKEBALL SECTION -->
-<section>
-  <div class="box">
-    <h2>🎮 Tap the Poké Ball 🎮</h2>
-
-    <div class="pokeball" onclick="openBall()">
-      <div class="center-btn"></div>
-    </div>
-
-    <div class="secret" id="secret">
-      <h2>💍 A Special Capture 💍</h2>
-      <p>
-        I choose you — today, tomorrow, always.  
-        You’re not just my girlfriend,  
-        you’re my forever.
-      </p>
-      <p style="font-size:30px;">🌹💍❤️</p>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIAL MESSAGE -->
-<section>
-  <div class="box">
-    <h2>💖 From My Heart 💖</h2>
     <p>
-      Just like a rose unfolds its petals,  
-      you opened my heart to a love so deep and pure.  
-      Your smile is my sunshine,  
-      and your love is my greatest treasure.
+      Just like a rose opens its petals slowly and beautifully,  
+      you opened my heart to a love so pure, deep, and real.  
+      Your smile is my peace, your voice is my comfort,  
+      and your love is the most precious thing in my life.
+    </p>
+    <p>
+      Loving you is my favorite feeling,  
+      and choosing you is the best decision I’ve ever made.
     </p>
   </div>
 </section>
 
-<!-- PIKACHU GAME FEEL -->
+<!-- SPECIAL SECTION -->
 <section>
-  <div class="box run-box">
-    <h2>⚡ Pikachu is Running to You ⚡</h2>
-    <div class="pikachu">⚡🐹⚡</div>
-    <p>He’s carrying all my love 💕</p>
+  <div class="box">
+    <h2>💖 Why You Are So Special 💖</h2>
+    <p>
+      You understand me even when I don’t speak.  
+      You support me even when I feel weak.  
+      With you, love feels safe, calm, and forever.
+    </p>
+    <p>
+      You are not just my girlfriend —  
+      you are my partner, my future, my wife,  
+      and the one my heart chooses every single day.
+    </p>
+  </div>
+</section>
+
+<!-- LOVE GAME -->
+<section>
+  <div class="box">
+    <h2>🌹 A Little Love Game 🌹</h2>
+    <p>Will you accept my rose and my forever?</p>
+    <div class="buttons">
+      <button class="yes" onclick="yesClick()">YES 💕</button>
+      <button class="no" onclick="noClick()">NO 🙈</button>
+    </div>
+    <p id="result"></p>
+  </div>
+</section>
+
+<!-- FINAL PROMISE -->
+<section>
+  <div class="box">
+    <h2>💍 My Promise To You 💍</h2>
+    <p>
+      On this Rose Day, I promise to stand by you,  
+      love you harder on difficult days,  
+      and choose you — today, tomorrow, and always.
+    </p>
+    <p style="font-size:1.4em;">🌹❤️🌹</p>
   </div>
 </section>
 
 <script>
-const symbols = ["🌹","🌸","🌺","❤️"];
+/* Floating pink petals & hearts */
+const symbols=["❤️","🌸","🍃"];
 
-function floatItem() {
-  const el = document.createElement("div");
-  el.className = "float";
-  el.innerText = symbols[Math.floor(Math.random()*symbols.length)];
-  el.style.left = Math.random()*100 + "vw";
-  el.style.fontSize = (18 + Math.random()*22) + "px";
-  el.style.animationDuration = (6 + Math.random()*4) + "s";
+function floatItem(){
+  const el=document.createElement("div");
+  el.className="float";
+  el.innerText=symbols[Math.floor(Math.random()*symbols.length)];
+  el.style.left=Math.random()*100+"vw";
+  el.style.fontSize=(14+Math.random()*14)+"px";
+  el.style.animationDuration=(7+Math.random()*4)+"s";
   document.body.appendChild(el);
-  setTimeout(() => el.remove(), 9000);
+  setTimeout(()=>el.remove(),10000);
 }
-setInterval(floatItem, 400);
+setInterval(floatItem,500);
 
-function openBall() {
-  document.getElementById("secret").style.display = "block";
+/* Game logic */
+function yesClick(){
+  document.getElementById("result").innerHTML=
+  "💖 You chose YES — and you just made my heart the happiest 🌹";
+}
+
+function noClick(){
+  document.getElementById("result").innerHTML=
+  "😅 Nice try… but my heart only accepts YES 💕";
 }
 </script>
 
