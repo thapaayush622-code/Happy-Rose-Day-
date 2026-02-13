@@ -2,88 +2,64 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Valentine Week Special ❤️</title>
+<title>Valentine Surprise ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
-  background:#ffe6f0;
-  scroll-behavior:smooth;
+  background:linear-gradient(to bottom,#ffcce0,#ffe6f2);
   overflow-x:hidden;
-}
-
-nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#ff4d88;
-  padding:10px;
   text-align:center;
-  z-index:1000;
-}
-
-nav a{
-  color:white;
-  text-decoration:none;
-  margin:0 10px;
-  font-size:14px;
-  font-weight:bold;
 }
 
 section{
-  padding:100px 20px;
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-}
-
-.box{
-  background:#ffb6c1;
-  max-width:800px;
-  padding:30px;
-  border-radius:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
-  text-align:center;
+  flex-direction:column;
+  padding:20px;
 }
 
 h1{
-  color:#b30059;
-}
-
-p{
-  color:#4a0033;
-  font-size:1.1em;
-  line-height:1.7;
+  color:#cc0066;
+  font-size:2.2em;
 }
 
 button{
-  padding:10px 25px;
+  padding:12px 25px;
   margin:10px;
   border:none;
   border-radius:30px;
+  font-size:16px;
   cursor:pointer;
+  transition:0.3s;
 }
 
 .yes{
-  background:#ff3366;
+  background:#ff3385;
   color:white;
 }
 
 .no{
   background:white;
-  color:#ff3366;
-  border:2px solid #ff3366;
+  color:#ff3385;
+  border:2px solid #ff3385;
+  position:relative;
 }
 
-/* Floating Hearts */
-.float{
+.hidden{
+  display:none;
+}
+
+/* floating pink leaves */
+.leaf{
   position:fixed;
-  bottom:-30px;
+  bottom:-20px;
+  font-size:18px;
   animation:floatUp linear infinite;
-  z-index:0;
 }
 
 @keyframes floatUp{
@@ -91,138 +67,89 @@ button{
   to{transform:translateY(-120vh);}
 }
 
-.nextprev{
-  margin-top:20px;
+/* pop animation */
+@keyframes pop{
+  0%{transform:scale(0);}
+  100%{transform:scale(1);}
 }
 
-.nextprev a{
-  color:#b30059;
-  font-weight:bold;
-  text-decoration:none;
-  margin:0 15px;
+.popup{
+  animation:pop 0.5s ease-out;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<a href="#rose">Rose Day</a>
-<a href="#promise">Promise Day</a>
-<a href="#teddy">Teddy Day</a>
-<a href="#kiss">Kiss Day</a>
-<a href="#valentine">Valentine's Day</a>
-</nav>
-
-<!-- ROSE DAY -->
-<section id="rose">
-<div class="box">
-<h1>🌹 Rose Day 🌹</h1>
-<p>You are the most beautiful rose in my life.  
-Every moment with you blooms like spring in my heart.</p>
-
-<button class="yes" onclick="love('rose')">Accept My Rose ❤️</button>
-<button class="no" onclick="nope('rose')">Maybe Later 😅</button>
-<p id="rose"></p>
-
-<div class="nextprev">
-<a href="#promise">Next ➝</a>
-</div>
-</div>
+<!-- INTRO -->
+<section id="intro">
+<h1>Hey… I Made Something For You 💌</h1>
+<button class="yes" onclick="nextPage('game1')">Open It ❤️</button>
 </section>
 
-<!-- PROMISE DAY -->
-<section id="promise">
-<div class="box">
-<h1>💍 Promise Day 💍</h1>
-<p>I promise to stand beside you, support you,  
-and choose you every single day.</p>
-
-<button class="yes" onclick="love('promise')">Promise Me Too 💕</button>
-<button class="no" onclick="nope('promise')">Think Again 😄</button>
-<p id="promise"></p>
-
-<div class="nextprev">
-<a href="#rose">⬅ Prev</a>
-<a href="#teddy">Next ➝</a>
-</div>
-</div>
+<!-- GAME 1 -->
+<section id="game1" class="hidden">
+<h1>Do You Like Me? 😳</h1>
+<button class="yes" onclick="nextPage('game2')">Yes 💖</button>
+<button class="no" id="runBtn">No 🙈</button>
 </section>
 
-<!-- TEDDY DAY -->
-<section id="teddy">
-<div class="box">
-<h1>🧸 Teddy Day 🧸</h1>
-<p>If I could, I would send you a teddy that hugs you  
-whenever I’m not there.</p>
-
-<button class="yes" onclick="love('teddy')">Hug Accepted 🤗</button>
-<button class="no" onclick="nope('teddy')">Nooo 😜</button>
-<p id="teddy"></p>
-
-<div class="nextprev">
-<a href="#promise">⬅ Prev</a>
-<a href="#kiss">Next ➝</a>
-</div>
-</div>
+<!-- GAME 2 -->
+<section id="game2" class="hidden">
+<h1>Tap the Heart 5 Times Fast 💓</h1>
+<button class="yes" onclick="tapHeart()">❤️</button>
+<p id="tapCount">Taps: 0</p>
 </section>
 
-<!-- KISS DAY -->
-<section id="kiss">
-<div class="box">
-<h1>💋 Kiss Day 💋</h1>
-<p>A soft kiss from me to you,  
-filled with love, respect, and forever feelings.</p>
-
-<button class="yes" onclick="love('kiss')">Accept 💖</button>
-<button class="no" onclick="nope('kiss')">Shy 😳</button>
-<p id="kiss"></p>
-
-<div class="nextprev">
-<a href="#teddy">⬅ Prev</a>
-<a href="#valentine">Next ➝</a>
-</div>
-</div>
-</section>
-
-<!-- VALENTINE DAY -->
-<section id="valentine">
-<div class="box">
-<h1>❤️ Valentine's Day ❤️</h1>
-<p>You are my today, my tomorrow, and my forever.  
-Will you be my Valentine?</p>
-
-<button class="yes" onclick="love('valentine')">YES ❤️</button>
-<button class="no" onclick="nope('valentine')">NO 🙈</button>
-<p id="valentine"></p>
-
-<div class="nextprev">
-<a href="#kiss">⬅ Prev</a>
-</div>
-</div>
+<!-- FINAL -->
+<section id="final" class="hidden">
+<h1 class="popup">You Are My Forever Valentine ❤️</h1>
+<p>From Rose Day to Forever… I Choose You 🌹</p>
+<button class="yes" onclick="firework()">Celebrate 🎉</button>
 </section>
 
 <script>
-const hearts=["❤️","💖","💕"];
+let current="intro";
 
-function floatHeart(){
+function nextPage(id){
+  document.getElementById(current).classList.add("hidden");
+  document.getElementById(id).classList.remove("hidden");
+  current=id;
+}
+
+/* Running NO button */
+const runBtn=document.getElementById("runBtn");
+runBtn.addEventListener("mouseover",()=>{
+  runBtn.style.position="absolute";
+  runBtn.style.left=Math.random()*80+"%";
+  runBtn.style.top=Math.random()*80+"%";
+});
+
+/* Tap heart game */
+let count=0;
+function tapHeart(){
+  count++;
+  document.getElementById("tapCount").innerText="Taps: "+count;
+  if(count>=5){
+    nextPage("final");
+  }
+}
+
+/* floating pink leaves */
+function floatLeaf(){
   const el=document.createElement("div");
-  el.className="float";
-  el.innerText=hearts[Math.floor(Math.random()*hearts.length)];
+  el.className="leaf";
+  el.innerText="🌸";
   el.style.left=Math.random()*100+"vw";
-  el.style.fontSize=(15+Math.random()*20)+"px";
   el.style.animationDuration=(6+Math.random()*4)+"s";
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),10000);
 }
-setInterval(floatHeart,500);
+setInterval(floatLeaf,400);
 
-function love(id){
-  document.getElementById(id).innerHTML="💖 You just made my heart the happiest!";
-}
-
-function nope(id){
-  document.getElementById(id).innerHTML="😄 Nice try… but my heart only wants YES!";
+/* simple celebration */
+function firework(){
+  alert("Yayyy 💖 Forever Together!");
 }
 </script>
 
