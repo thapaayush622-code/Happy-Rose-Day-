@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Valentine Surprise ❤️</title>
+<title>Happy Valentine ❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
   font-family:'Segoe UI',sans-serif;
-  background:linear-gradient(to bottom,#ffcce0,#ffe6f2);
+  background:linear-gradient(to bottom,#ffccdd,#ffe6f2);
   overflow-x:hidden;
   text-align:center;
 }
@@ -20,12 +20,19 @@ section{
   justify-content:center;
   align-items:center;
   flex-direction:column;
-  padding:20px;
+  padding:30px;
 }
 
 h1{
   color:#cc0066;
-  font-size:2.2em;
+}
+
+.bigMessage{
+  max-width:800px;
+  font-size:18px;
+  line-height:1.8;
+  color:#99004d;
+  animation:fadeIn 2s ease-in;
 }
 
 button{
@@ -54,7 +61,11 @@ button{
   display:none;
 }
 
-/* floating pink leaves */
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
 .leaf{
   position:fixed;
   bottom:-20px;
@@ -66,50 +77,61 @@ button{
   from{transform:translateY(0);}
   to{transform:translateY(-120vh);}
 }
-
-/* pop animation */
-@keyframes pop{
-  0%{transform:scale(0);}
-  100%{transform:scale(1);}
-}
-
-.popup{
-  animation:pop 0.5s ease-out;
-}
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-<section id="intro">
-<h1>Hey… I Made Something For You 💌</h1>
-<button class="yes" onclick="nextPage('game1')">Open It ❤️</button>
-</section>
-
-<!-- GAME 1 -->
-<section id="game1" class="hidden">
-<h1>Do You Like Me? 😳</h1>
-<button class="yes" onclick="nextPage('game2')">Yes 💖</button>
+<!-- GAME START -->
+<section id="game1">
+<h1>First Play A Small Game 😍</h1>
+<h2>Will You Be My Valentine? 💖</h2>
+<button class="yes" onclick="nextPage('message')">Yes ❤️</button>
 <button class="no" id="runBtn">No 🙈</button>
 </section>
 
-<!-- GAME 2 -->
-<section id="game2" class="hidden">
-<h1>Tap the Heart 5 Times Fast 💓</h1>
-<button class="yes" onclick="tapHeart()">❤️</button>
-<p id="tapCount">Taps: 0</p>
+<!-- BIG MESSAGE -->
+<section id="message" class="hidden">
+<h1>Happy Valentine’s Day My Love 💌</h1>
+
+<div class="bigMessage">
+My love… you are my everything.  
+You are the peace in my chaos, the smile in my sadness,  
+and the light in my darkest days.  
+
+Before you came into my life, I didn’t know  
+someone could mean this much to me.  
+Now I can’t imagine even a single day without you.  
+
+You are not just someone I love…  
+you are the person I want forever.  
+You are what I prayed for,  
+what I dreamed for,  
+and what my heart always needed.  
+
+From Rose Day 🌹 to Promise Day 💍,  
+from Teddy Day 🧸 to Kiss Day 💋,  
+every day becomes special because of you.  
+
+I don’t just want you for Valentine’s Day…  
+I want you for every tomorrow.  
+
+Happy Valentine’s Day,  
+my forever, my always, my everything ❤️
+</div>
+
+<button class="yes" onclick="nextPage('final')">Next Surprise 🎁</button>
 </section>
 
-<!-- FINAL -->
+<!-- FINAL PAGE -->
 <section id="final" class="hidden">
-<h1 class="popup">You Are My Forever Valentine ❤️</h1>
-<p>From Rose Day to Forever… I Choose You 🌹</p>
-<button class="yes" onclick="firework()">Celebrate 🎉</button>
+<h1>You Are My Forever ❤️</h1>
+<h2>I Love You More Than Words Can Explain 💖</h2>
+<button class="yes" onclick="celebrate()">Celebrate 🎉</button>
 </section>
 
 <script>
-let current="intro";
+let current="game1";
 
 function nextPage(id){
   document.getElementById(current).classList.add("hidden");
@@ -125,17 +147,7 @@ runBtn.addEventListener("mouseover",()=>{
   runBtn.style.top=Math.random()*80+"%";
 });
 
-/* Tap heart game */
-let count=0;
-function tapHeart(){
-  count++;
-  document.getElementById("tapCount").innerText="Taps: "+count;
-  if(count>=5){
-    nextPage("final");
-  }
-}
-
-/* floating pink leaves */
+/* Floating pink petals */
 function floatLeaf(){
   const el=document.createElement("div");
   el.className="leaf";
@@ -147,9 +159,8 @@ function floatLeaf(){
 }
 setInterval(floatLeaf,400);
 
-/* simple celebration */
-function firework(){
-  alert("Yayyy 💖 Forever Together!");
+function celebrate(){
+  alert("Forever Together ❤️✨");
 }
 </script>
 
